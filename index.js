@@ -54,6 +54,15 @@ document.addEventListener("keydown", function(event) {
 });
 
 function makeSong(key) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+
+
+
+
   switch (key) {
     case "h":
       var audio = new Audio("./song/Akon_-_Hurt_Somebody_(Explicit)_(Official_Video)_ft._French_Montana(1).mp3");
