@@ -74,5 +74,22 @@ function makeSong(key) {
       console.log("Not found");
       break;
   }
+
+  // If same song is already playing, stop it
+  if (currentAudio && currentAudio.src.includes(audioSrc)) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  } else {
+    // Stop any previously playing song
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    // Play new song
+    currentAudio = new Audio(audioSrc);
+    currentAudio.play();
+  }
 }
 
